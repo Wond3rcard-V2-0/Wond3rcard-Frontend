@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:wond3rcard/src/admin/social_media/data/controller/social_media_controller.dart';
 import 'package:wond3rcard/src/admin/social_media/data/model/social_media.dart';
 import 'package:wond3rcard/src/utils/size_constants.dart';
 import 'package:wond3rcard/src/utils/wonder_card_colors.dart';
-import 'package:wond3rcard/src/utils/wonder_card_strings.dart';
 import 'package:wond3rcard/src/utils/wonder_card_typography.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,11 +19,10 @@ class AddAndSaveAccountWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final textEditingController = useTextEditingController();
     final valueNotifier = useState('');
-    final baseUrlNotifier = useState(controller.imageUrl ?? '');
-    final controllerNameNotifier = useState(controller.name ?? '');
+    final baseUrlNotifier = useState(controller.imageUrl);
+    final controllerNameNotifier = useState(controller.name);
 
     useEffect(() {
-      // Load saved username, base URL, and controller name
       _loadSavedData(controller.name, textEditingController, baseUrlNotifier,
           controllerNameNotifier);
 
@@ -36,7 +33,7 @@ class AddAndSaveAccountWidget extends HookConsumerWidget {
             baseUrlNotifier.value, controllerNameNotifier.value);
       });
 
-      return null; // No cleanup needed
+      return null;
     }, [textEditingController]);
 
     return Container(
@@ -93,13 +90,10 @@ class AddAndSaveAccountWidget extends HookConsumerWidget {
   ) async {
     final prefs = await SharedPreferences.getInstance();
     final savedUsername = prefs.getString('${socialMediaId}_username') ?? '';
-    final savedBaseUrl = prefs.getString('${socialMediaId}_baseUrl') ??
-        controller.imageUrl ??
-        '';
+    final savedBaseUrl =
+        prefs.getString('${socialMediaId}_baseUrl') ?? controller.imageUrl;
     final savedControllerName =
-        prefs.getString('${socialMediaId}_controllerName') ??
-            controller.name ??
-            '';
+        prefs.getString('${socialMediaId}_controllerName') ?? controller.name;
 
     textController.text = savedUsername;
     baseUrlNotifier.value = savedBaseUrl;

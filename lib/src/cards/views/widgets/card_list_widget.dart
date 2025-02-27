@@ -103,6 +103,13 @@ class _CardListWidgetState extends ConsumerState<CardListWidget> {
                                         ),
                                         const Spacer(),
                                         NameAndJob(
+                                          companyName: emptyString,
+                                          designation: cardController
+                                                  .getCardsResponse
+                                                  ?.payload
+                                                  ?.cards?[index]
+                                                  .designation ??
+                                              emptyString,
                                           text: cardController
                                                   .getCardsResponse
                                                   ?.payload

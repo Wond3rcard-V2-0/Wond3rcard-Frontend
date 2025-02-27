@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:heroicons/heroicons.dart';
@@ -75,7 +73,9 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            context.go(
+              RouteString.mainDashboard,
+            );
           },
         ),
       ),

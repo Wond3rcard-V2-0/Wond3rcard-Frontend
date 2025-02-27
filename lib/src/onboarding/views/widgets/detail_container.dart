@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:wond3rcard/src/admin/social_media/data/model/social_media.dart';
 import 'package:wond3rcard/src/onboarding/views/widgets/account_row.dart';
-import 'package:wond3rcard/src/utils/decoration_box.dart';
 import 'package:wond3rcard/src/utils/size_constants.dart';
 import 'package:wond3rcard/src/shared/views/widgets/wonder_card_design_system/add_and_save_account.dart';
 

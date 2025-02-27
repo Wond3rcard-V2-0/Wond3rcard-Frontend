@@ -5,8 +5,10 @@ import 'package:wond3rcard/src/profile/data/profile_controller/profile_controlle
 import 'package:wond3rcard/src/utils/wonder_card_colors.dart';
 
 class NameAndJob extends HookConsumerWidget {
-  const NameAndJob({super.key, this.text});
+  const NameAndJob({super.key, this.text, this.designation, this.companyName});
   final String? text;
+  final String? designation;
+  final String? companyName;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final profileController = ref.read(profileProvider);
@@ -43,7 +45,7 @@ class NameAndJob extends HookConsumerWidget {
         Row(
           children: [
             Text(
-              '${userData.designation} @ ',
+             designation ?? '${userData.designation} @ ',
               style: const TextStyle(
                 color: AppColors.grayScale600,
                 fontFamily: 'Barlow',
@@ -52,7 +54,7 @@ class NameAndJob extends HookConsumerWidget {
               ),
             ),
             Text(
-              '${userData.companyName} ',
+             companyName ?? '${userData.companyName} ',
               style: const TextStyle(
                 color: AppColors.grayScale600,
                 fontFamily: 'Barlow',

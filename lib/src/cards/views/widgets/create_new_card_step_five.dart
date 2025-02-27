@@ -6,7 +6,7 @@ import 'package:wond3rcard/src/admin/social_media/data/controller/social_media_c
 import 'package:wond3rcard/src/cards/data/controller/card_controller.dart';
 import 'package:wond3rcard/src/cards/views/widgets/card_social_links.dart';
 import 'package:wond3rcard/src/cards/views/widgets/create_card_reusable_app_bar.dart';
-import 'package:wond3rcard/src/onboarding/views/pages/mobile/onboarding_fifth_screen_mobile.dart';
+import 'package:wond3rcard/src/shared/views/widgets/social_media_list.dart';
 import 'package:wond3rcard/src/shared/views/widgets/wonder_card_design_system/button/wonder_card_button.dart';
 import 'package:wond3rcard/src/utils/size_constants.dart';
 import 'package:wond3rcard/src/utils/wonder_card_colors.dart';
@@ -17,16 +17,11 @@ import 'package:wond3rcard/src/utils/wonder_card_typography.dart';
 
 class CreateNewCardStepFive extends HookConsumerWidget {
   const CreateNewCardStepFive({super.key});
-
   static const routeName = RouteString.createNewCardStepFive;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final onboardingController = ref.watch(onboardingProvider);
     final cardController = ref.watch(cardProvider);
-
     final socialController = ref.watch(socialProvider);
-
     useEffect(
       () {
         Future.delayed(Duration.zero, () async {
@@ -97,23 +92,6 @@ class CreateNewCardStepFive extends HookConsumerWidget {
         ),
       ),
     );
-
-    // Column(
-    //   children: [
-    //     const SocialMediaSwitches(),
-    // WonderCardButton(
-    //   showLoader: cardController.loading,
-    //   text: 'Submit',
-    //   onPressed: () async {
-    //     try {
-    //       await ref.watch(cardProvider).createCard(context);
-    //     } catch (e) {
-    //       print('Error: $e');
-    //     }
-    //   },
-    // ),
-    //   ],
-    // );
   }
 }
 
