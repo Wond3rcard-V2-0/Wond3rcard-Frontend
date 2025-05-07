@@ -1,0 +1,57 @@
+name: wonder_card_website
+description: "A new Flutter project."
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  go_router: ^15.1.1
+  animated_card: ^2.0.0
+  flutter_animate: ^4.5.2
+  google_fonts: ^6.2.1
+  simple_animations: ^5.2.0
+  marquee: ^2.3.0
+  scrollable_positioned_list: ^0.3.8
+  responsive_builder: ^0.7.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/app_icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "images/app_icon.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "images/app_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "images/app_icon.png"  
+  
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/
+    - images/wonder_card_logo.png
+    - images/behance.png
+
+  fonts:
+    - family: Barlow
+      fonts:
+        - asset: fonts/Barlow-Regular.ttf
